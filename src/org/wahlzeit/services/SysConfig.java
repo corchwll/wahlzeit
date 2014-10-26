@@ -204,7 +204,7 @@ public class SysConfig extends AbstractConfig {
 	public static String getDbUserAsString() {
 		return getInstance().getValue(SysConfig.DB_USER);
 	}
-	
+	 
 	/**
 	 * 
 	 */
