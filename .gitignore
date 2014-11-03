@@ -1,4 +1,5 @@
 .settings/
+.metadata
 /build
 /web/data/photos
 /web/WEB-INF/classes
