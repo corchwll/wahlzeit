@@ -20,12 +20,14 @@
 
 package org.wahlzeit.handlers;
 
-import java.util.*;
-
 import org.wahlzeit.model.*;
-import org.wahlzeit.services.*;
-import org.wahlzeit.utils.*;
-import org.wahlzeit.webparts.*;
+import org.wahlzeit.utils.HtmlUtil;
+import org.wahlzeit.utils.StringUtil;
+import org.wahlzeit.webparts.WebPart;
+import org.wahlzeit.webparts.Writable;
+import org.wahlzeit.webparts.WritableList;
+
+import java.util.Map;
 
 /**
  * 
@@ -163,6 +165,7 @@ public class ShowPhotoPageHandler extends AbstractWebPageHandler implements WebF
 			
 		WebPart caption = createWebPart(us, PartUtil.CAPTION_INFO_FILE);
 		caption.addString(Photo.CAPTION, getPhotoCaption(us, photo));
+		caption.addString(Photo.LOCATION, photo.getLocation());
 		page.addWritable(Photo.CAPTION, caption);
 	}
 

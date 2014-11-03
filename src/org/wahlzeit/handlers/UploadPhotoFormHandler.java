@@ -20,13 +20,14 @@
 
 package org.wahlzeit.handlers;
 
-import java.util.*;
-import java.io.*;
-
 import org.wahlzeit.model.*;
-import org.wahlzeit.services.*;
-import org.wahlzeit.utils.*;
-import org.wahlzeit.webparts.*;
+import org.wahlzeit.services.SysConfig;
+import org.wahlzeit.services.SysLog;
+import org.wahlzeit.utils.StringUtil;
+import org.wahlzeit.webparts.WebPart;
+
+import java.io.*;
+import java.util.Map;
 
 /**
  * 
@@ -58,6 +59,28 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 	protected String doHandlePost(UserSession us, Map args) {
 		String tags = us.getAndSaveAsString(args, Photo.TAGS);
 
+		double lat;
+		double lon;
+
+		try
+		{
+			lat = Double.parseDouble(us.getAndSaveAsString(args, Photo.LAT));
+			lon = Double.parseDouble(us.getAndSaveAsString(args, Photo.LON));
+		} catch(Exception e)
+		{
+			lat = 0.0;
+			lon = 0.0;
+		}
+
+		String mapcode = us.getAndSaveAsString(args, Photo.MAPCODE);
+		Location location;
+		location = new GPSLocation(lat, lon);
+
+		if(lat == 0.0 && lon == 0.0 && mapcode != "")
+		{
+			location.setMapcode(mapcode);
+		}
+
 		if (!StringUtil.isLegalTagsString(tags)) {
 			us.setMessage(us.cfg().getInputIsInvalid());
 			return PartUtil.UPLOAD_PHOTO_PAGE_NAME;
@@ -76,7 +99,7 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 			user.addPhoto(photo); 
 			
 			photo.setTags(new Tags(tags));
-
+			photo.setLocation(location);
 			pm.savePhoto(photo);
 
 			StringBuffer sb = UserLog.createActionEntry("UploadPhoto");

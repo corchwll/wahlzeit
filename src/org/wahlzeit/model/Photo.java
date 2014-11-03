@@ -20,11 +20,15 @@
 
 package org.wahlzeit.model;
 
-import java.sql.*;
-import java.net.*;
+import org.wahlzeit.services.DataObject;
+import org.wahlzeit.services.EmailAddress;
+import org.wahlzeit.services.Language;
+import org.wahlzeit.utils.StringUtil;
 
-import org.wahlzeit.services.*;
-import org.wahlzeit.utils.*;
+import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * A photo represents a user-provided (uploaded) photo.
@@ -51,6 +55,11 @@ public class Photo extends DataObject {
 	public static final String STATUS = "status";
 	public static final String IS_INVISIBLE = "isInvisible";
 	public static final String UPLOADED_ON = "uploadedOn";
+
+	public static final String LAT = "lat";
+	public static final String LON = "lon";
+	public static final String MAPCODE = "mapcode";
+	public static final String LOCATION = "location";
 	
 	/**
 	 * 
@@ -106,6 +115,8 @@ public class Photo extends DataObject {
 	 * 
 	 */
 	protected long creationTime = System.currentTimeMillis();
+
+	protected Location location;
 	
 	/**
 	 * 
@@ -166,6 +177,10 @@ public class Photo extends DataObject {
 
 		creationTime = rset.getLong("creation_time");
 
+		double latitude = rset.getDouble("lat");
+		double longitude = rset.getDouble("lon");
+		location = new GPSLocation(latitude, longitude);
+
 		maxPhotoSize = PhotoSize.getFromWidthHeight(width, height);
 	}
 	
@@ -186,6 +201,8 @@ public class Photo extends DataObject {
 		rset.updateInt("status", status.asInt());
 		rset.updateInt("praise_sum", praiseSum);
 		rset.updateInt("no_votes", noVotes);
+		rset.updateDouble("lat", location.getLatitude());
+		rset.updateDouble("lon", location.getLongitude());
 		rset.updateLong("creation_time", creationTime);		
 	}
 
@@ -480,5 +497,14 @@ public class Photo extends DataObject {
 	public long getCreationTime() {
 		return creationTime;
 	}
-	
+
+	public String getLocation()
+	{
+		return location.asString();
+	}
+
+	public void setLocation(Location location)
+	{
+		this.location = location;
+	}
 }
