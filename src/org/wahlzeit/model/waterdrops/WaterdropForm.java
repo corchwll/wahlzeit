@@ -32,6 +32,10 @@ public class WaterdropForm
 		setFontain(fontain);
 	}
 
+	/**
+	 *
+	 * @methodtype boolean query method
+	 */
 	public boolean isDoublePillar()
 	{
 		return doublePillar;
@@ -40,6 +44,7 @@ public class WaterdropForm
 	/**
 	 * @pre doublePillar can not be combined with bubble
 	 * @post correct values will be set
+	 * @methodtype set method
 	 */
 	public void setDoublePillar(boolean doublePillar) throws RuntimeException
 	{
@@ -50,6 +55,10 @@ public class WaterdropForm
 		assert(this.doublePillar == doublePillar);
 	}
 
+	/**
+	 *
+	 * @methodtype boolean query method
+	 */
 	public boolean isBubble()
 	{
 		return bubble;
@@ -58,6 +67,7 @@ public class WaterdropForm
 	/**
 	 * @pre bubble cannot be combined with doublePillar or crown
 	 * @post correct values will be set
+	 * @methodtype set method
 	 */
 	public void setBubble(boolean bubble) throws RuntimeException
 	{
@@ -68,17 +78,29 @@ public class WaterdropForm
 		assert(this.bubble == bubble);
 	}
 
+	/**
+	 *
+	 * @methodtype boolean query method
+	 */
 	public boolean isHighPillar()
 	{
 		return highPillar;
 	}
 
+	/**
+	 *
+	 * @methodtype set method
+	 */
 	public void setHighPillar(boolean highPillar)
 	{
 		this.highPillar = highPillar;
 		assert(this.highPillar == highPillar);
 	}
 
+	/**
+	 *
+	 * @methodtype boolean query method
+	 */
 	public boolean isCrown()
 	{
 		return crown;
@@ -87,6 +109,7 @@ public class WaterdropForm
 	/**
 	 * @pre crown can not be combined with bubble
 	 * @post correct values will be set
+	 * @methodtype set method
 	 */
 	public void setCrown(boolean crown) throws RuntimeException
 	{
@@ -97,11 +120,19 @@ public class WaterdropForm
 		assert(this.crown == crown);
 	}
 
+	/**
+	 *
+	 * @methodtype boolean query method
+	 */
 	public boolean isFontain()
 	{
 		return fontain;
 	}
 
+	/**
+	 *
+	 * @methodtype set method
+	 */
 	public void setFontain(boolean fontain)
 	{
 		this.fontain = fontain;

@@ -55,6 +55,10 @@ public class WaterdropPhoto extends Photo
 		super(rset);
 	}
 
+	/**
+	 *
+	 * @methodtype initialization method
+	 */
 	@Override
 	public void readFrom(ResultSet rset) throws SQLException
 	{
@@ -76,6 +80,10 @@ public class WaterdropPhoto extends Photo
 		this.influence = Influence.valueOf(rset.getString(INFLUENCE));
 	}
 
+	/**
+	 *
+	 * @methodtype command method
+	 */
 	@Override
 	public void writeOn(ResultSet rset) throws SQLException
 	{
@@ -96,31 +104,55 @@ public class WaterdropPhoto extends Photo
 		rset.updateString(INFLUENCE, influence.name());
 	}
 
+	/**
+	 *
+	 * @methodtype get method
+	 */
 	public WaterdropTechnique getTechnique()
 	{
 		return technique;
 	}
 
+	/**
+	 *
+	 * @methodtype set method
+	 */
 	public void setTechnique(WaterdropTechnique technique)
 	{
 		this.technique = technique;
 	}
 
+	/**
+	 *
+	 * @methodtype get method
+	 */
 	public WaterdropForm getForm()
 	{
 		return form;
 	}
 
+	/**
+	 *
+	 * @methodtype set method
+	 */
 	public void setForm(WaterdropForm form)
 	{
 		this.form = form;
 	}
 
+	/**
+	 *
+	 * @methodtype get method
+	 */
 	public Influence getInfluence()
 	{
 		return influence;
 	}
 
+	/**
+	 *
+	 * @methodtype set method
+	 */
 	public void setInfluence(Influence influence)
 	{
 		this.influence = influence;

@@ -34,6 +34,10 @@ public class WaterdropTechnique
 		assert(this.liquid != null);
 	}
 
+	/**
+	 *
+	 * @methodtype boolean query method
+	 */
 	public boolean isSolidSurface()
 	{
 		return solidSurface;
@@ -43,6 +47,7 @@ public class WaterdropTechnique
 	 *
 	 * @pre solidSurface should only be true with liquid water or liquid hasn't been specified yet
 	 * @post no null value will be set
+	 * @methodtype set method
 	 */
 	public void setSolidSurface(boolean solidSurface) throws RuntimeException
 	{
@@ -53,6 +58,10 @@ public class WaterdropTechnique
 		assert(solidSurface == this.solidSurface);
 	}
 
+	/**
+	 *
+	 * @methodtype get method
+	 */
 	public Liquid getLiquid()
 	{
 		return liquid;
@@ -62,6 +71,7 @@ public class WaterdropTechnique
 	 *
 	 * @pre if solidSurface is true, only water should be set as liquid
 	 * @post correct value will be set
+	 * @methodtype set method
 	 */
 	public void setLiquid(Liquid liquid) throws RuntimeException
 	{
@@ -72,6 +82,10 @@ public class WaterdropTechnique
 		assert this.liquid.equals(liquid);
 	}
 
+	/**
+	 *
+	 * @methodtype boolean query method
+	 */
 	public boolean isSmoke()
 	{
 		return smoke;
@@ -79,7 +93,7 @@ public class WaterdropTechnique
 
 	/**
 	 *
-	 * @methodtype set
+	 * @methodtype set method
 	 */
 	public void setSmoke(boolean smoke)
 	{
@@ -88,7 +102,7 @@ public class WaterdropTechnique
 
 	/**
 	 *
-	 *
+	 * @methodtype boolean query method
 	 */
 	public boolean isSoapFilm()
 	{
@@ -97,7 +111,7 @@ public class WaterdropTechnique
 
 	/**
 	 *
-	 * @methodtype set
+	 * @methodtype set method
 	 */
 	public void setSoapFilm(boolean soapFilm)
 	{
