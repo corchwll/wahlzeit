@@ -8,7 +8,7 @@ package org.wahlzeit.model.waterdrops;
 public class WaterdropTechnique
 {
 	private boolean solidSurface;
-	private Liquid liquid;
+	private Liquid liquid = Liquid.water;
 	private boolean smoke;
 	private boolean soapFilm;
 
@@ -44,9 +44,11 @@ public class WaterdropTechnique
 	 * @pre solidSurface should only be true with liquid water or liquid hasn't been specified yet
 	 * @post no null value will be set
 	 */
-	public void setSolidSurface(boolean solidSurface)
+	public void setSolidSurface(boolean solidSurface) throws RuntimeException
 	{
-		assert(solidSurface && liquid.equals(Liquid.water) || solidSurface && (liquid == null) || !solidSurface);
+		if(solidSurface && !liquid.equals(Liquid.water))
+			throw new RuntimeException("invariant violated");
+
 		this.solidSurface = solidSurface;
 		assert(solidSurface == this.solidSurface);
 	}
@@ -61,9 +63,11 @@ public class WaterdropTechnique
 	 * @pre if solidSurface is true, only water should be set as liquid
 	 * @post correct value will be set
 	 */
-	public void setLiquid(Liquid liquid)
+	public void setLiquid(Liquid liquid) throws RuntimeException
 	{
-		assert(solidSurface && liquid.equals(Liquid.water) || !solidSurface);
+		if(solidSurface && !liquid.equals(Liquid.water))
+			throw new RuntimeException("invariant violated!");
+
 		this.liquid = liquid;
 		assert this.liquid.equals(liquid);
 	}

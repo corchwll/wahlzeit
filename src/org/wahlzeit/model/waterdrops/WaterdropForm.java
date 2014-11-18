@@ -41,9 +41,11 @@ public class WaterdropForm
 	 * @pre doublePillar can not be combined with bubble
 	 * @post correct values will be set
 	 */
-	public void setDoublePillar(boolean doublePillar)
+	public void setDoublePillar(boolean doublePillar) throws RuntimeException
 	{
-		assert(doublePillar && !bubble);
+		if(doublePillar && bubble)
+			throw new RuntimeException("invariant violated");
+
 		this.doublePillar = doublePillar;
 		assert(this.doublePillar == doublePillar);
 	}
@@ -57,9 +59,11 @@ public class WaterdropForm
 	 * @pre bubble cannot be combined with doublePillar or crown
 	 * @post correct values will be set
 	 */
-	public void setBubble(boolean bubble)
+	public void setBubble(boolean bubble) throws RuntimeException
 	{
-		assert(bubble && !doublePillar && !crown);
+		if(bubble && (doublePillar || crown))
+			throw new RuntimeException("invariant violated");
+
 		this.bubble = bubble;
 		assert(this.bubble == bubble);
 	}
@@ -84,9 +88,11 @@ public class WaterdropForm
 	 * @pre crown can not be combined with bubble
 	 * @post correct values will be set
 	 */
-	public void setCrown(boolean crown)
+	public void setCrown(boolean crown) throws RuntimeException
 	{
-		assert(crown && !bubble);
+		if(crown && bubble)
+			throw new RuntimeException("invariant violated");
+
 		this.crown = crown;
 		assert(this.crown == crown);
 	}

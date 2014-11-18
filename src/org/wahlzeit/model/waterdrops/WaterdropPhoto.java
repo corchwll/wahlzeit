@@ -35,8 +35,7 @@ public class WaterdropPhoto extends Photo
 	 * @methodtype constructor
 	 */
 	public WaterdropPhoto() {
-		id = PhotoId.getNextId();
-		incWriteCount();
+		super();
 	}
 
 	/**
@@ -44,9 +43,7 @@ public class WaterdropPhoto extends Photo
 	 * @methodtype constructor
 	 */
 	public WaterdropPhoto(PhotoId myId) {
-		id = myId;
-
-		incWriteCount();
+		super(myId);
 	}
 
 	/**
@@ -55,7 +52,7 @@ public class WaterdropPhoto extends Photo
 	 */
 	public WaterdropPhoto(ResultSet rset) throws SQLException
 	{
-		readFrom(rset);
+		super(rset);
 	}
 
 	@Override
