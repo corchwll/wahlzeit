@@ -31,7 +31,17 @@ CREATE TABLE photos (
 	no_votes integer,
 	lat decimal,
 	lon decimal,
-	creation_time bigint
+	creation_time bigint,
+	solid_surface boolean,
+	liquid text,
+	smoke boolean,
+	soap_film boolean,
+	double_pillar boolean,
+	bubble boolean,
+	high_pillar boolean,
+	crown boolean,
+	fontain boolean,
+	influence text
 );
 
 CREATE TABLE tags (
