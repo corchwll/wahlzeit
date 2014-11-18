@@ -21,6 +21,7 @@
 package org.wahlzeit.handlers;
 
 import org.wahlzeit.model.*;
+import org.wahlzeit.model.waterdrops.WaterdropPhoto;
 import org.wahlzeit.utils.HtmlUtil;
 import org.wahlzeit.utils.StringUtil;
 import org.wahlzeit.webparts.WebPart;
@@ -166,7 +167,44 @@ public class ShowPhotoPageHandler extends AbstractWebPageHandler implements WebF
 		WebPart caption = createWebPart(us, PartUtil.CAPTION_INFO_FILE);
 		caption.addString(Photo.CAPTION, getPhotoCaption(us, photo));
 		caption.addString(Photo.LOCATION, photo.getLocation());
+		makeWaterdropPhotoCaption(caption, photo);
+
 		page.addWritable(Photo.CAPTION, caption);
+	}
+
+	private void makeWaterdropPhotoCaption(WebPart caption, Photo photo)
+	{
+		if(photo instanceof WaterdropPhoto)
+		{
+			WaterdropPhoto wdPhoto = (WaterdropPhoto)photo;
+
+			String technique = "";
+			if(wdPhoto.getTechnique().isSolidSurface())
+				technique += "Solid surface;";
+			technique += "Liquid=" + wdPhoto.getTechnique().getLiquid().name() + ";";
+			if(wdPhoto.getTechnique().isSmoke())
+				technique += "Smoke;";
+			if(wdPhoto.getTechnique().isSoapFilm())
+				technique += "Soap film;";
+
+			String form = "";
+			if(wdPhoto.getForm().isDoublePillar())
+				form += "Double Pillar;";
+			if(wdPhoto.getForm().isBubble())
+				form += "Bubble;";
+			if(wdPhoto.getForm().isHighPillar())
+				form += "High Pillar;";
+			if(wdPhoto.getForm().isCrown())
+				form += "Crown;";
+			if(wdPhoto.getForm().isFontain())
+				form += "Fontain;";
+
+			caption.addString(WaterdropPhoto.TECHNIQUE, technique);
+
+			caption.addString(WaterdropPhoto.FORM, form);
+
+			caption.addString(WaterdropPhoto.INFLUENCE, wdPhoto.getInfluence().name());
+		}
 	}
 
 	/**

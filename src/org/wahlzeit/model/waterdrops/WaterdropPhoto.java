@@ -28,7 +28,7 @@ public class WaterdropPhoto extends Photo
 
 	protected WaterdropTechnique technique = new WaterdropTechnique();
 	protected WaterdropForm form = new WaterdropForm();
-	protected Influence influence;
+	protected Influence influence = Influence.none;
 
 	/**
 	 *
@@ -85,7 +85,8 @@ public class WaterdropPhoto extends Photo
 		super.writeOn(rset);
 
 		rset.updateBoolean(SOLID_SURFACE, technique.isSolidSurface());
-		rset.updateString(LIQUID, technique.getLiquid().name());
+		rset.updateString(LIQUID, technique.getLiquid()
+										   .name());
 		rset.updateBoolean(SMOKE, technique.isSmoke());
 		rset.updateBoolean(SOAP_FILM, technique.isSoapFilm());
 
@@ -96,5 +97,35 @@ public class WaterdropPhoto extends Photo
 		rset.updateBoolean(FONTAIN, form.isFontain());
 
 		rset.updateString(INFLUENCE, influence.name());
+	}
+
+	public WaterdropTechnique getTechnique()
+	{
+		return technique;
+	}
+
+	public void setTechnique(WaterdropTechnique technique)
+	{
+		this.technique = technique;
+	}
+
+	public WaterdropForm getForm()
+	{
+		return form;
+	}
+
+	public void setForm(WaterdropForm form)
+	{
+		this.form = form;
+	}
+
+	public Influence getInfluence()
+	{
+		return influence;
+	}
+
+	public void setInfluence(Influence influence)
+	{
+		this.influence = influence;
 	}
 }

@@ -5,6 +5,7 @@ package org.wahlzeit.model.waterdrops;
  */
 public enum Influence
 {
+	none,
 	shot,
 	blow,
 	soapBubble

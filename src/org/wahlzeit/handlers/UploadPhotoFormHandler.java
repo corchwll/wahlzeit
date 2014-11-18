@@ -21,8 +21,7 @@
 package org.wahlzeit.handlers;
 
 import org.wahlzeit.model.*;
-import org.wahlzeit.model.waterdrops.GPSLocation;
-import org.wahlzeit.model.waterdrops.Location;
+import org.wahlzeit.model.waterdrops.*;
 import org.wahlzeit.services.SysConfig;
 import org.wahlzeit.services.SysLog;
 import org.wahlzeit.utils.StringUtil;
@@ -102,6 +101,8 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 			
 			photo.setTags(new Tags(tags));
 			photo.setLocation(location);
+
+			doHandleWaterdropPhoto(photo, us, args);
 			pm.savePhoto(photo);
 
 			StringBuffer sb = UserLog.createActionEntry("UploadPhoto");
@@ -115,6 +116,33 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 		}
 		
 		return PartUtil.UPLOAD_PHOTO_PAGE_NAME;
+	}
+
+	private void doHandleWaterdropPhoto(Photo photo, UserSession us, Map args)
+	{
+		if(photo instanceof WaterdropPhoto)
+		{
+			WaterdropPhoto wdPhoto = (WaterdropPhoto)photo;
+
+			boolean solidSurface = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.SOLID_SURFACE));
+			Liquid liquid = Liquid.valueOf(us.getAndSaveAsString(args, WaterdropPhoto.LIQUID));
+			boolean smoke = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.SMOKE));
+			boolean soapFilm = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.SOAP_FILM));
+			WaterdropTechnique technique = new WaterdropTechnique(solidSurface, liquid, smoke, soapFilm);
+
+			boolean doublePillar = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.DOUBLE_PILLAR));
+			boolean bubble = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.BUBBLE));
+			boolean highPillar = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.HIGH_PILLAR));
+			boolean crown = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.CROWN));
+			boolean fontain = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.FONTAIN));
+			WaterdropForm form = new WaterdropForm(doublePillar, bubble, highPillar, crown, fontain);
+
+			Influence influence = Influence.valueOf(us.getAndSaveAsString(args, WaterdropPhoto.INFLUENCE));
+
+			wdPhoto.setTechnique(technique);
+			wdPhoto.setForm(form);
+			wdPhoto.setInfluence(influence);
+		}
 	}
 	
 	/**
