@@ -4,7 +4,6 @@ import com.mapcode.Mapcode;
 import com.mapcode.MapcodeCodec;
 import com.mapcode.Point;
 import com.mapcode.UnknownMapcodeException;
-import org.wahlzeit.model.waterdrops.AbstractLocation;
 
 /**
  * Created by fertigt on 03/11/14.
@@ -13,27 +12,47 @@ public class GPSLocation extends AbstractLocation
 {
 	private double[] point;
 
+	/**
+	 *
+	 * @methodtype constructor
+	 */
 	public GPSLocation()
 	{
 		point = new double[]{0.0, 0.0};
 	}
 
+	/**
+	 *
+	 * @methodtype constructor
+	 */
 	public GPSLocation(double[] point)
 	{
 		this.point = point;
 	}
 
+	/**
+	 *
+	 * @methodtype constructor
+	 */
 	public GPSLocation(double latitude, double longitude)
 	{
 		point = new double[]{latitude, longitude};
 	}
 
+	/**
+	 *
+	 * @methodtype get method
+	 */
 	@Override
 	public double[] getPoint()
 	{
 		return point;
 	}
 
+	/**
+	 *
+	 * @methodtype get method
+	 */
 	@Override
 	public String getMapcode()
 	{
@@ -41,6 +60,10 @@ public class GPSLocation extends AbstractLocation
 		return mapcode.toString();
 	}
 
+	/**
+	 *
+	 * @methodtype set method
+	 */
 	@Override
 	public void setMapcode(String mapcode)
 	{
@@ -55,12 +78,20 @@ public class GPSLocation extends AbstractLocation
 		}
 	}
 
+	/**
+	 *
+	 * @methodtype set method
+	 */
 	@Override
 	protected void doSetPoint(double[] point)
 	{
 		this.point = point;
 	}
 
+	/**
+	 *
+	 * @methodtype conversion method
+	 */
 	@Override
 	public String asString()
 	{
