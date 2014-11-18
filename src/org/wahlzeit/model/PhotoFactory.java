@@ -20,9 +20,11 @@
 
 package org.wahlzeit.model;
 
-import java.sql.*;
+import org.wahlzeit.model.waterdrops.WaterdropPhoto;
+import org.wahlzeit.services.SysLog;
 
-import org.wahlzeit.services.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * 
@@ -78,21 +80,21 @@ public class PhotoFactory {
 	 * @methodtype factory
 	 */
 	public Photo createPhoto() {
-		return new Photo();
+		return new WaterdropPhoto();
 	}
 	
 	/**
 	 * 
 	 */
 	public Photo createPhoto(PhotoId id) {
-		return new Photo(id);
+		return new WaterdropPhoto(id);
 	}
 	
 	/**
 	 * 
 	 */
 	public Photo createPhoto(ResultSet rs) throws SQLException {
-		return new Photo(rs);
+		return new WaterdropPhoto(rs);
 	}
 	
 	/**

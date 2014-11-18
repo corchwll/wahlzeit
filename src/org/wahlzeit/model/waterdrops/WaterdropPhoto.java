@@ -12,15 +12,15 @@ import java.sql.SQLException;
 public class WaterdropPhoto extends Photo
 {
 	public static final String TECHNIQUE = "technique";
-	public static final String SOLID_SURFACE = "solidSurface";
+	public static final String SOLID_SURFACE = "solid_surface";
 	public static final String LIQUID = "liquid";
 	public static final String SMOKE = "smoke";
-	public static final String SOAP_FILM = "soapFilm";
+	public static final String SOAP_FILM = "soap_film";
 
 	public static final String FORM = "form";
-	public static final String DOUBLE_PILLAR = "doublePillar";
+	public static final String DOUBLE_PILLAR = "double_pillar";
 	public static final String BUBBLE = "bubble";
-	public static final String HIGH_PILLAR = "highPillar";
+	public static final String HIGH_PILLAR = "high_pillar";
 	public static final String CROWN = "crown";
 	public static final String FONTAIN = "fontain";
 
