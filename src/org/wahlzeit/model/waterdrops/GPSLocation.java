@@ -1,9 +1,10 @@
-package org.wahlzeit.model;
+package org.wahlzeit.model.waterdrops;
 
 import com.mapcode.Mapcode;
 import com.mapcode.MapcodeCodec;
 import com.mapcode.Point;
 import com.mapcode.UnknownMapcodeException;
+import org.wahlzeit.model.waterdrops.AbstractLocation;
 
 /**
  * Created by fertigt on 03/11/14.

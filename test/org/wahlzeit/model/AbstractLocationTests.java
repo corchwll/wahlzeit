@@ -2,6 +2,9 @@ package org.wahlzeit.model;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.wahlzeit.model.waterdrops.GPSLocation;
+import org.wahlzeit.model.waterdrops.Location;
+import org.wahlzeit.model.waterdrops.MapcodeLocation;
 
 import static org.junit.Assert.assertTrue;
 

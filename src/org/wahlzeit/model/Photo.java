@@ -20,6 +20,8 @@
 
 package org.wahlzeit.model;
 
+import org.wahlzeit.model.waterdrops.GPSLocation;
+import org.wahlzeit.model.waterdrops.Location;
 import org.wahlzeit.services.DataObject;
 import org.wahlzeit.services.EmailAddress;
 import org.wahlzeit.services.Language;
