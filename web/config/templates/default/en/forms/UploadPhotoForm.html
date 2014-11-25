@@ -28,20 +28,36 @@
 	</table></td></tr></table>
 
 	<div class="border">
-		<input type="checkbox" name="solid_surface" value="true">Solid Surface<br>
-		<input type="radio" name="liquid" value="water" checked>Water<br>
-		<input type="radio" name="liquid" value="paint">Paint<br>
-		<input type="radio" name="liquid" value="milk">Milk<br>
-		<input type="checkbox" name="smoke" value="true">Smoke<br>
-		<input type="checkbox" name="saop_film" value="true">Soap Film<br>
+		<select name="technique">
+			<option value="WATER_SOLID_SMOKE_SOAPFILM">WATER_SOLID_SMOKE_SOAPFILM</option>
+			<option value="WATER_SOLID_SMOKE">WATER_SOLID_SMOKE</option>
+			<option value="WATER_SOLID_SOAPFILM">WATER_SOLID_SOAPFILM</option>
+			<option value="WATER_SOLID">WATER_SOLID</option>
+			<option value="WATER_SMOKE_SOAPFILM">WATER_SMOKE_SOAPFILM</option>
+			<option value="WATER_SMOKE">WATER_SMOKE</option>
+			<option value="WATER_SOAPFILM">WATER_SOAPFILM</option>
+			<option value="WATER">WATER</option>
+			<option value="PAINT_SMOKE">PAINT_SMOKE</option>
+			<option value="PAINT_">PAINT</option>
+			<option value="MILK_SMOKE">MILK_SMOKE</option>
+			<option value="MILK">MILK</option>
+		</select>
 	</div>
 
 	<div class="border">
-		<input type="checkbox" name="double_pillar" value="true">Double Pillar<br>
-		<input type="checkbox" name="bubble" value="true">Bubble<br>
-		<input type="checkbox" name="high_pillar" value="true">High Pillar<br>
-		<input type="checkbox" name="crown" value="true">Crown<br>
-		<input type="checkbox" name="fontain" value="true">Fontain<br>
+		<select name="form">
+			<option value="DOUBLE_HIGH_FONTAIN">DOUBLE_HIGH_FONTAIN</option>
+			<option value="DOUBLE_HIGH">DOUBLE_HIGH</option>
+			<option value="DOUBLE_FONTAIN">DOUBLE_FONTAIN</option>
+			<option value="DOUBLE">DOUBLE</option>
+			<option value="BUBBLE_FONTAIN">BUBBLE_FONTAIN</option>
+			<option value="BUBBLE">BUBBLE</option>
+			<option value="HIGH_FONTAIN">HIGH_FONTAIN</option>
+			<option value="HIGH">HIGH</option>
+			<option value="CROWN">CROWN</option>
+			<option value="FONTAIN">FONTAIN</option>
+			<option value="NONE">NONE</option>
+		</select>
 	</div>
 
 	<div class="border">

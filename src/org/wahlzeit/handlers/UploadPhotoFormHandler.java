@@ -124,19 +124,9 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 		{
 			WaterdropPhoto wdPhoto = (WaterdropPhoto)photo;
 
-			boolean solidSurface = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.SOLID_SURFACE));
-			Liquid liquid = Liquid.valueOf(us.getAndSaveAsString(args, WaterdropPhoto.LIQUID));
-			boolean smoke = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.SMOKE));
-			boolean soapFilm = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.SOAP_FILM));
-			WaterdropTechnique technique = new WaterdropTechnique(solidSurface, liquid, smoke, soapFilm);
-
-			boolean doublePillar = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.DOUBLE_PILLAR));
-			boolean bubble = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.BUBBLE));
-			boolean highPillar = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.HIGH_PILLAR));
-			boolean crown = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.CROWN));
-			boolean fontain = Boolean.parseBoolean(us.getAndSaveAsString(args, WaterdropPhoto.FONTAIN));
-			WaterdropForm form = new WaterdropForm(doublePillar, bubble, highPillar, crown, fontain);
-
+			WaterdropTechniqueEnum technique = WaterdropTechniqueEnum.valueOf(us.getAndSaveAsString(args,
+					WaterdropPhoto.TECHNIQUE));
+			WaterdropFormEnum form = WaterdropFormEnum.valueOf(us.getAndSaveAsString(args, WaterdropPhoto.FORM));
 			Influence influence = Influence.valueOf(us.getAndSaveAsString(args, WaterdropPhoto.INFLUENCE));
 
 			wdPhoto.setTechnique(technique);

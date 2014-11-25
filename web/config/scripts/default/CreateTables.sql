@@ -32,15 +32,8 @@ CREATE TABLE photos (
 	lat decimal,
 	lon decimal,
 	creation_time bigint,
-	solid_surface boolean,
-	liquid text,
-	smoke boolean,
-	soap_film boolean,
-	double_pillar boolean,
-	bubble boolean,
-	high_pillar boolean,
-	crown boolean,
-	fontain boolean,
+	technique text,
+	form text,
 	influence text
 );
 
