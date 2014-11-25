@@ -88,6 +88,7 @@ public class WaterdropPhoto extends Photo
 	public void setTechnique(WaterdropTechniqueEnum technique)
 	{
 		this.technique = technique;
+		incWriteCount();
 	}
 
 	/**
@@ -106,6 +107,7 @@ public class WaterdropPhoto extends Photo
 	public void setForm(WaterdropFormEnum form)
 	{
 		this.form = form;
+		incWriteCount();
 	}
 
 	/**
@@ -124,5 +126,6 @@ public class WaterdropPhoto extends Photo
 	public void setInfluence(Influence influence)
 	{
 		this.influence = influence;
+		incWriteCount();
 	}
 }
