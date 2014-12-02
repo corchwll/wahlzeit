@@ -15,9 +15,7 @@ public class WaterdropPhoto extends Photo
 	public static final String FORM = "form";
 	public static final String INFLUENCE = "influence";
 
-	protected WaterdropTechniqueEnum technique = WaterdropTechniqueEnum.WATER;
-	protected WaterdropFormEnum form = WaterdropFormEnum.NONE;
-	protected Influence influence = Influence.none;
+	protected Waterdrop waterdrop;
 
 	/**
 	 *
@@ -53,9 +51,10 @@ public class WaterdropPhoto extends Photo
 	{
 		super.readFrom(rset);
 
-		this.technique = WaterdropTechniqueEnum.valueOf(rset.getString(TECHNIQUE));
-		this.form = WaterdropFormEnum.valueOf(rset.getString(FORM));
-		this.influence = Influence.valueOf(rset.getString(INFLUENCE));
+		String technique = rset.getString(TECHNIQUE);
+		String form = rset.getString(FORM);
+		String influence = rset.getString(INFLUENCE);
+		this.waterdrop = WaterdropManager.getInstance().createWaterdrop(technique, form, influence);
 	}
 
 	/**
@@ -67,65 +66,25 @@ public class WaterdropPhoto extends Photo
 	{
 		super.writeOn(rset);
 
-		rset.updateString(TECHNIQUE, technique.name());
-		rset.updateString(FORM, form.name());
-		rset.updateString(INFLUENCE, influence.name());
+		WaterdropManager.getInstance().saveWaterdrop(rset, this.waterdrop);
 	}
 
 	/**
 	 *
 	 * @methodtype get method
 	 */
-	public WaterdropTechniqueEnum getTechnique()
+	public Waterdrop getWaterdrop()
 	{
-		return technique;
+		return this.waterdrop;
 	}
 
 	/**
 	 *
 	 * @methodtype set method
 	 */
-	public void setTechnique(WaterdropTechniqueEnum technique)
+	public void setWaterdrop(Waterdrop waterdrop)
 	{
-		this.technique = technique;
-		incWriteCount();
-	}
-
-	/**
-	 *
-	 * @methodtype get method
-	 */
-	public WaterdropFormEnum getForm()
-	{
-		return form;
-	}
-
-	/**
-	 *
-	 * @methodtype set method
-	 */
-	public void setForm(WaterdropFormEnum form)
-	{
-		this.form = form;
-		incWriteCount();
-	}
-
-	/**
-	 *
-	 * @methodtype get method
-	 */
-	public Influence getInfluence()
-	{
-		return influence;
-	}
-
-	/**
-	 *
-	 * @methodtype set method
-	 */
-	public void setInfluence(Influence influence)
-	{
-		this.influence = influence;
+		this.waterdrop = waterdrop;
 		incWriteCount();
 	}
 }
