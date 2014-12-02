@@ -178,32 +178,9 @@ public class ShowPhotoPageHandler extends AbstractWebPageHandler implements WebF
 		{
 			WaterdropPhoto wdPhoto = (WaterdropPhoto)photo;
 
-			String technique = "";
-			if(wdPhoto.getTechnique().isSolidSurface())
-				technique += "Solid surface;";
-			technique += "Liquid=" + wdPhoto.getTechnique().getLiquid().name() + ";";
-			if(wdPhoto.getTechnique().isSmoke())
-				technique += "Smoke;";
-			if(wdPhoto.getTechnique().isSoapFilm())
-				technique += "Soap film;";
-
-			String form = "";
-			if(wdPhoto.getForm().isDoublePillar())
-				form += "Double Pillar;";
-			if(wdPhoto.getForm().isBubble())
-				form += "Bubble;";
-			if(wdPhoto.getForm().isHighPillar())
-				form += "High Pillar;";
-			if(wdPhoto.getForm().isCrown())
-				form += "Crown;";
-			if(wdPhoto.getForm().isFontain())
-				form += "Fontain;";
-
-			caption.addString(WaterdropPhoto.TECHNIQUE, technique);
-
-			caption.addString(WaterdropPhoto.FORM, form);
-
-			caption.addString(WaterdropPhoto.INFLUENCE, wdPhoto.getInfluence().name());
+			caption.addString(WaterdropPhoto.TECHNIQUE, wdPhoto.getWaterdrop().getTechnique().asString());
+			caption.addString(WaterdropPhoto.FORM, wdPhoto.getWaterdrop().getForm().asString());
+			caption.addString(WaterdropPhoto.INFLUENCE, wdPhoto.getWaterdrop().getInfluence().name());
 		}
 	}
 

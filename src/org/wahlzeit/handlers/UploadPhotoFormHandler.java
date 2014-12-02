@@ -124,14 +124,11 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 		{
 			WaterdropPhoto wdPhoto = (WaterdropPhoto)photo;
 
-			WaterdropTechniqueEnum technique = WaterdropTechniqueEnum.valueOf(us.getAndSaveAsString(args,
-					WaterdropPhoto.TECHNIQUE));
-			WaterdropFormEnum form = WaterdropFormEnum.valueOf(us.getAndSaveAsString(args, WaterdropPhoto.FORM));
-			Influence influence = Influence.valueOf(us.getAndSaveAsString(args, WaterdropPhoto.INFLUENCE));
+			String technique = us.getAndSaveAsString(args, WaterdropPhoto.TECHNIQUE);
+			String form = us.getAndSaveAsString(args, WaterdropPhoto.FORM);
+			String influence = us.getAndSaveAsString(args, WaterdropPhoto.INFLUENCE);
 
-			wdPhoto.setTechnique(technique);
-			wdPhoto.setForm(form);
-			wdPhoto.setInfluence(influence);
+			wdPhoto.setWaterdrop(WaterdropManager.getInstance().createWaterdrop(technique,form, influence));
 		}
 	}
 	
