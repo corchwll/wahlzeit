@@ -49,12 +49,15 @@ public class WaterdropPhoto extends Photo
 	@Override
 	public void readFrom(ResultSet rset) throws SQLException
 	{
+		assert !rset.isClosed();
 		super.readFrom(rset);
 
 		String technique = rset.getString(TECHNIQUE);
 		String form = rset.getString(FORM);
 		String influence = rset.getString(INFLUENCE);
 		this.waterdrop = WaterdropManager.getInstance().createWaterdrop(technique, form, influence);
+
+		assert waterdrop.getTechnique() != null && waterdrop.getForm() != null && waterdrop.getInfluence() != null;
 	}
 
 	/**
@@ -64,9 +67,11 @@ public class WaterdropPhoto extends Photo
 	@Override
 	public void writeOn(ResultSet rset) throws SQLException
 	{
+		assert !rset.isClosed();
 		super.writeOn(rset);
 
 		WaterdropManager.getInstance().saveWaterdrop(rset, this.waterdrop);
+		assert !rset.isClosed();
 	}
 
 	/**
@@ -84,6 +89,7 @@ public class WaterdropPhoto extends Photo
 	 */
 	public void setWaterdrop(Waterdrop waterdrop)
 	{
+		assert waterdrop != null;
 		this.waterdrop = waterdrop;
 		incWriteCount();
 	}
