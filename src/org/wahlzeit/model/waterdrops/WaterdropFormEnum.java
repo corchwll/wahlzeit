@@ -56,4 +56,21 @@ public enum WaterdropFormEnum
 	{
 		return fontain;
 	}
+
+	public String asString()
+	{
+		String form = "";
+		if(isDoublePillar())
+			form += "Double Pillar;";
+		if(isBubble())
+			form += "Bubble;";
+		if(isHighPillar())
+			form += "High Pillar;";
+		if(isCrown())
+			form += "Crown;";
+		if(isFontain())
+			form += "Fontain;";
+
+		return form;
+	}
 }

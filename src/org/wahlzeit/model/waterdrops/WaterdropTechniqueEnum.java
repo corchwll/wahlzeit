@@ -50,4 +50,18 @@ public enum WaterdropTechniqueEnum
 	{
 		return soapFilm;
 	}
+
+	public String asString()
+	{
+		String technique = "";
+		if(isSolidSurface())
+			technique += "Solid surface;";
+		technique += "Liquid=" + getLiquid().name() + ";";
+		if(isSmoke())
+			technique += "Smoke;";
+		if(isSoapFilm())
+			technique += "Soap film;";
+
+		return technique;
+	}
 }
