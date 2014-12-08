@@ -2,6 +2,9 @@ package org.wahlzeit.model.waterdrops;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -28,5 +31,31 @@ public class WaterdropManagerTests
 				techniqueEnum.equals(WaterdropTechniqueEnum.valueOf(techniqueAsString)) &&
 						formEnum.equals(WaterdropFormEnum.valueOf(formAsString)) &&
 						influence.equals(Influence.valueOf(influenceAsString)));
+	}
+
+	@Test
+	public void testSaveWaterdrop_WaterdropNotNullAndOpenRSet_correctValuesSet()
+	{
+		Waterdrop waterdrop = WaterdropManager.getInstance()
+											  .createWaterdrop(techniqueAsString, formAsString, influenceAsString);
+
+		Map<String,String> rsetValues = new HashMap<>();
+		rsetValues.put(WaterdropPhoto.TECHNIQUE, techniqueAsString);
+		rsetValues.put(WaterdropPhoto.FORM, formAsString);
+		rsetValues.put(WaterdropPhoto.INFLUENCE, influenceAsString);
+
+		boolean exceptionThrown = false;
+		TestResultSet rset = null;
+		try
+		{
+			rset = new TestResultSet();
+			WaterdropManager.getInstance()
+							.saveWaterdrop(rset, waterdrop);
+		} catch(Exception e)
+		{
+			exceptionThrown = true;
+		}
+
+		assertTrue(exceptionThrown == false && rsetValues.equals(rset.rsetValues));
 	}
 }
