@@ -34,7 +34,10 @@ CREATE TABLE photos (
 	creation_time bigint,
 	technique text,
 	form text,
-	influence text
+	influence text,
+	typeName text,
+	size decimal,
+	tool text
 );
 
 CREATE TABLE tags (
