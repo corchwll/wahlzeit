@@ -21,7 +21,6 @@
 package org.wahlzeit.handlers;
 
 import org.wahlzeit.model.*;
-import org.wahlzeit.model.waterdrops.WaterdropPhoto;
 import org.wahlzeit.utils.HtmlUtil;
 import org.wahlzeit.utils.StringUtil;
 import org.wahlzeit.webparts.WebPart;
@@ -167,21 +166,8 @@ public class ShowPhotoPageHandler extends AbstractWebPageHandler implements WebF
 		WebPart caption = createWebPart(us, PartUtil.CAPTION_INFO_FILE);
 		caption.addString(Photo.CAPTION, getPhotoCaption(us, photo));
 		caption.addString(Photo.LOCATION, photo.getLocation());
-		makeWaterdropPhotoCaption(caption, photo);
 
 		page.addWritable(Photo.CAPTION, caption);
-	}
-
-	private void makeWaterdropPhotoCaption(WebPart caption, Photo photo)
-	{
-		if(photo instanceof WaterdropPhoto)
-		{
-			WaterdropPhoto wdPhoto = (WaterdropPhoto)photo;
-
-			caption.addString(WaterdropPhoto.TECHNIQUE, wdPhoto.getWaterdrop().getTechnique().asString());
-			caption.addString(WaterdropPhoto.FORM, wdPhoto.getWaterdrop().getForm().asString());
-			caption.addString(WaterdropPhoto.INFLUENCE, wdPhoto.getWaterdrop().getInfluence().name());
-		}
 	}
 
 	/**

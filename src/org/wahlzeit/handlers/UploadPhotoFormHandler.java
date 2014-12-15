@@ -102,7 +102,6 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 			photo.setTags(new Tags(tags));
 			photo.setLocation(location);
 
-			doHandleWaterdropPhoto(photo, us, args);
 			pm.savePhoto(photo);
 
 			StringBuffer sb = UserLog.createActionEntry("UploadPhoto");
@@ -118,20 +117,6 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 		return PartUtil.UPLOAD_PHOTO_PAGE_NAME;
 	}
 
-	private void doHandleWaterdropPhoto(Photo photo, UserSession us, Map args)
-	{
-		if(photo instanceof WaterdropPhoto)
-		{
-			WaterdropPhoto wdPhoto = (WaterdropPhoto)photo;
-
-			String technique = us.getAndSaveAsString(args, WaterdropPhoto.TECHNIQUE);
-			String form = us.getAndSaveAsString(args, WaterdropPhoto.FORM);
-			String influence = us.getAndSaveAsString(args, WaterdropPhoto.INFLUENCE);
-
-			wdPhoto.setWaterdrop(WaterdropManager.getInstance().createWaterdrop(technique,form, influence));
-		}
-	}
-	
 	/**
 	 * 
 	 */
