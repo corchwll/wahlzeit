@@ -20,7 +20,6 @@
 
 package org.wahlzeit.model;
 
-import org.wahlzeit.model.waterdrops.WaterdropPhoto;
 import org.wahlzeit.services.SysLog;
 
 import java.sql.ResultSet;
@@ -54,7 +53,7 @@ public class PhotoFactory {
 	/**
 	 * Method to set the singleton instance of PhotoFactory.
 	 */
-	protected static synchronized void setInstance(PhotoFactory photoFactory) {
+	public static synchronized void setInstance(PhotoFactory photoFactory) {
 		if (instance != null) {
 			throw new IllegalStateException("attempt to initalize PhotoFactory twice");
 		}
@@ -80,21 +79,21 @@ public class PhotoFactory {
 	 * @methodtype factory
 	 */
 	public Photo createPhoto() {
-		return new WaterdropPhoto();
+		return new Photo();
 	}
 	
 	/**
 	 * 
 	 */
 	public Photo createPhoto(PhotoId id) {
-		return new WaterdropPhoto(id);
+		return new Photo(id);
 	}
 	
 	/**
 	 * 
 	 */
 	public Photo createPhoto(ResultSet rs) throws SQLException {
-		return new WaterdropPhoto(rs);
+		return new Photo(rs);
 	}
 	
 	/**
