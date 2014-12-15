@@ -14,6 +14,9 @@ import java.util.Map;
  */
 public class UploadWaterdropPhotoFormHandler extends UploadPhotoFormHandler
 {
+	/**
+	 * @methodtype command method
+	 */
 	@Override
 	protected String doHandlePost(UserSession us, Map args)
 	{
@@ -77,6 +80,9 @@ public class UploadWaterdropPhotoFormHandler extends UploadPhotoFormHandler
 		return PartUtil.UPLOAD_PHOTO_PAGE_NAME;
 	}
 
+	/**
+	 * @methodtype command method
+	 */
 	private void doHandleWaterdropPhoto(Photo photo, UserSession us, Map args)
 	{
 		String typeName = us.getAndSaveAsString(args, WaterdropType.NAME);

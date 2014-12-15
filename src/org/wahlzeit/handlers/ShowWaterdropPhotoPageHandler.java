@@ -11,6 +11,9 @@ import org.wahlzeit.webparts.WebPart;
  */
 public class ShowWaterdropPhotoPageHandler extends ShowPhotoPageHandler
 {
+	/**
+	 * @methodtype command method
+	 */
 	@Override
 	protected void makePhotoCaption(UserSession us, WebPart page)
 	{

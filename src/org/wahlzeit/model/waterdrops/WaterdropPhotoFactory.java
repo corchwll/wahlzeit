@@ -11,6 +11,9 @@ import java.sql.SQLException;
  */
 public class WaterdropPhotoFactory extends PhotoFactory
 {
+	/**
+	 * @methodtype constructor
+	 */
 	public WaterdropPhotoFactory()
 	{
 
