@@ -15,6 +15,9 @@ public class WaterdropManagerTests
 	private final String techniqueAsString = WaterdropTechniqueEnum.WATER_SOLID_SMOKE_SOAPFILM.name();
 	private final String formAsString = WaterdropFormEnum.DOUBLE_HIGH_FONTAIN.name();
 	private final String influenceAsString = Influence.blow.name();
+	private final String typeName = "test type";
+	private final double size = 4.0;
+	private final String tool = "Pipette";
 
 	@Test
 	public void testCreateWaterdrop_CorrectParameters_CorrectWaterdrop()
@@ -31,6 +34,28 @@ public class WaterdropManagerTests
 				techniqueEnum.equals(WaterdropTechniqueEnum.valueOf(techniqueAsString)) &&
 						formEnum.equals(WaterdropFormEnum.valueOf(formAsString)) &&
 						influence.equals(Influence.valueOf(influenceAsString)));
+	}
+
+	@Test
+	public void testCreateWaterdropWithType_CorrectParameters_CorrectWaterdrop()
+	{
+		Waterdrop waterdrop = WaterdropManager.getInstance()
+											  .createWaterdrop(techniqueAsString, formAsString, influenceAsString,
+													  typeName, size, tool);
+
+		WaterdropTechniqueEnum techniqueEnum = waterdrop.getTechnique();
+		WaterdropFormEnum formEnum = waterdrop.getForm();
+		Influence influence = waterdrop.getInfluence();
+		String typeName = waterdrop.getType().getName();
+		double size = waterdrop.getType().getWaterdropSize();
+		String tool = waterdrop.getType().getTool();
+
+		assertTrue("Technique of waterdrop must not be null and was " + techniqueEnum + "; Form of waterdrop must not" +
+				" be null and was " + formEnum + "; influence must not be null and was " + influence,
+				techniqueEnum.equals(WaterdropTechniqueEnum.valueOf(techniqueAsString)) &&
+						formEnum.equals(WaterdropFormEnum.valueOf(formAsString)) &&
+						influence.equals(Influence.valueOf(influenceAsString)) && typeName.equals(this.typeName) &&
+						size == this.size && tool.equals(this.tool));
 	}
 
 	@Test
