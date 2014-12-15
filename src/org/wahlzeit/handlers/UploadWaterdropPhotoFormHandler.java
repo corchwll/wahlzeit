@@ -1,10 +1,7 @@
 package org.wahlzeit.handlers;
 
 import org.wahlzeit.model.*;
-import org.wahlzeit.model.waterdrops.GPSLocation;
-import org.wahlzeit.model.waterdrops.Location;
-import org.wahlzeit.model.waterdrops.WaterdropManager;
-import org.wahlzeit.model.waterdrops.WaterdropPhoto;
+import org.wahlzeit.model.waterdrops.*;
 import org.wahlzeit.services.SysConfig;
 import org.wahlzeit.services.SysLog;
 import org.wahlzeit.utils.StringUtil;
@@ -82,12 +79,17 @@ public class UploadWaterdropPhotoFormHandler extends UploadPhotoFormHandler
 
 	private void doHandleWaterdropPhoto(Photo photo, UserSession us, Map args)
 	{
+		String typeName = us.getAndSaveAsString(args, WaterdropType.NAME);
+		double size = Double.parseDouble(us.getAndSaveAsString(args, WaterdropType.SIZE));
+		String tool = us.getAndSaveAsString(args, WaterdropType.TOOL);
+
 		WaterdropPhoto wdPhoto = (WaterdropPhoto)photo;
 
 		String technique = us.getAndSaveAsString(args, WaterdropPhoto.TECHNIQUE);
 		String form = us.getAndSaveAsString(args, WaterdropPhoto.FORM);
 		String influence = us.getAndSaveAsString(args, WaterdropPhoto.INFLUENCE);
 
-		wdPhoto.setWaterdrop(WaterdropManager.getInstance().createWaterdrop(technique, form, influence));
+		wdPhoto.setWaterdrop(WaterdropManager.getInstance().createWaterdrop(technique, form, influence, typeName,
+				size, tool));
 	}
 }
