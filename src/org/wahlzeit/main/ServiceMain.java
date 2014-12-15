@@ -20,14 +20,16 @@
 
 package org.wahlzeit.main;
 
-import java.io.*;
-import javax.servlet.*;
-
 import org.wahlzeit.agents.AgentManager;
 import org.wahlzeit.handlers.*;
-import org.wahlzeit.model.*;
-import org.wahlzeit.webparts.*;
-import org.wahlzeit.services.*;
+import org.wahlzeit.model.AccessRights;
+import org.wahlzeit.model.EnglishModelConfig;
+import org.wahlzeit.model.GermanModelConfig;
+import org.wahlzeit.model.LanguageConfigs;
+import org.wahlzeit.services.ConfigDir;
+import org.wahlzeit.services.Language;
+import org.wahlzeit.services.SysConfig;
+import org.wahlzeit.webparts.WebPartTemplateService;
 
 /**
  * A Main class that runs a Wahlzeit web server.
@@ -133,7 +135,8 @@ public class ServiceMain extends ModelMain {
 		manager.addWebPartHandler(PartUtil.FILTER_PHOTOS_FORM_NAME, new FilterPhotosFormHandler());
 		manager.addWebPartHandler(PartUtil.PRAISE_PHOTO_FORM_NAME, new PraisePhotoFormHandler());
 
-		temp = new ShowPhotoPageHandler();
+		//temp = new ShowPhotoPageHandler();
+		temp = new ShowWaterdropPhotoPageHandler();
 		manager.addWebPartHandler(PartUtil.SHOW_PHOTO_PAGE_NAME, temp);
 		manager.addWebPartHandler(PartUtil.ENGAGE_GUEST_FORM_NAME, temp);
 		
@@ -199,7 +202,8 @@ public class ServiceMain extends ModelMain {
 		manager.addWebPartHandler(PartUtil.CHANGE_PASSWORD_PAGE_NAME, new ShowPartPageHandler(AccessRights.USER, temp));
 		temp = manager.addWebPartHandler(PartUtil.EDIT_USER_PHOTO_FORM_NAME, new EditUserPhotoFormHandler());
 		manager.addWebPartHandler(PartUtil.EDIT_USER_PHOTO_PAGE_NAME, new ShowPartPageHandler(AccessRights.USER, temp));
-		temp = manager.addWebPartHandler(PartUtil.UPLOAD_PHOTO_FORM_NAME, new UploadPhotoFormHandler());
+		temp = manager.addWebPartHandler(PartUtil.UPLOAD_PHOTO_FORM_NAME, new UploadWaterdropPhotoFormHandler());
+		//temp = manager.addWebPartHandler(PartUtil.UPLOAD_PHOTO_FORM_NAME, new UploadPhotoFormHandler());
 		manager.addWebPartHandler(PartUtil.UPLOAD_PHOTO_PAGE_NAME, new ShowPartPageHandler(AccessRights.USER, temp));
 		
 		manager.addWebPartHandler(PartUtil.EDIT_PHOTO_CASE_FORM_NAME, new EditPhotoCaseFormHandler());
