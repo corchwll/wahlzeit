@@ -38,6 +38,7 @@ public class WaterdropType
 	 */
 	public void setName(String name)
 	{
+		assert name != null;
 		this.name = name;
 	}
 
@@ -56,6 +57,7 @@ public class WaterdropType
 	 */
 	public void setWaterdropSize(double waterdropSize)
 	{
+		assert waterdropSize > 0.0;
 		this.waterdropSize = waterdropSize;
 	}
 
@@ -74,6 +76,7 @@ public class WaterdropType
 	 */
 	public void setTool(String tool)
 	{
+		assert tool != null;
 		this.tool = tool;
 	}
 }
