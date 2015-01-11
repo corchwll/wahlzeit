@@ -31,7 +31,7 @@ public class MapcodeLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, Photo
 	 * @methodtype get method
 	 */
 	@Override
@@ -53,7 +53,7 @@ public class MapcodeLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, Photo
 	 * @methodtype get method
 	 */
 	@Override
@@ -63,7 +63,7 @@ public class MapcodeLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration creation, UploadPhotoHandler
 	 * @methodtype set method
 	 */
 	@Override
@@ -73,19 +73,23 @@ public class MapcodeLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration creation, UploadPhotoHandler
+	 * @methodtype set method
+	 */
+	@Override
+	protected void doSetPoint(double[] point)
+	{
+		Mapcode mapcode = MapcodeCodec.encodeToInternational(point[0], point[1]);
+		this.mapcode = mapcode.toString();
+	}
+
+	/**
+	 * @collaboration location, Photo
 	 * @methodtype conversion method
 	 */
 	@Override
 	public String asString()
 	{
 		return mapcode;
-	}
-
-	@Override
-	protected void doSetPoint(double[] point)
-	{
-		Mapcode mapcode = MapcodeCodec.encodeToInternational(point[0], point[1]);
-		this.mapcode = mapcode.toString();
 	}
 }

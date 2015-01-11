@@ -58,7 +58,7 @@ public class Waterdrop extends DataObject
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, WaterdropManager
 	 * @methodtype get method
 	 */
 	public WaterdropTechniqueEnum getTechnique()
@@ -67,7 +67,7 @@ public class Waterdrop extends DataObject
 	}
 
 	/**
-	 *
+	 * @collaboration manager, WaterdropManager
 	 * @methodtype set method
 	 */
 	public void setTechnique(WaterdropTechniqueEnum technique)
@@ -76,7 +76,7 @@ public class Waterdrop extends DataObject
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, WaterdropManager
 	 * @methodtype get method
 	 */
 	public WaterdropFormEnum getForm()
@@ -85,7 +85,7 @@ public class Waterdrop extends DataObject
 	}
 
 	/**
-	 *
+	 *@collaboration manager, WaterdropManager
 	 * @methodtype set method
 	 */
 	public void setForm(WaterdropFormEnum form)
@@ -94,7 +94,7 @@ public class Waterdrop extends DataObject
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, WaterdropManager
 	 * @methodtype get method
 	 */
 	public Influence getInfluence()
@@ -103,7 +103,7 @@ public class Waterdrop extends DataObject
 	}
 
 	/**
-	 *
+	 * @collaboration manager, WaterdropManager
 	 * @methodtype set method
 	 */
 	public void setInfluence(Influence influence)
@@ -112,7 +112,7 @@ public class Waterdrop extends DataObject
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, WaterdropManager
 	 * @methodtype get method
 	 */
 	public WaterdropType getType()
@@ -121,7 +121,7 @@ public class Waterdrop extends DataObject
 	}
 
 	/**
-	 *
+	 * @collaboration manager, WaterdropManager
 	 * @methodtype set method
 	 */
 	public void setType(WaterdropType type)

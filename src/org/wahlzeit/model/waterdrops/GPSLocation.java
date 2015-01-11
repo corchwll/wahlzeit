@@ -40,7 +40,7 @@ public class GPSLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, Photo
 	 * @methodtype get method
 	 */
 	@Override
@@ -50,7 +50,7 @@ public class GPSLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, Photo
 	 * @methodtype get method
 	 */
 	@Override
@@ -61,7 +61,7 @@ public class GPSLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration creation, UploadPhotoHandler
 	 * @methodtype set method
 	 */
 	@Override
@@ -79,7 +79,7 @@ public class GPSLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration creation, UploadPhotoHandler
 	 * @methodtype set method
 	 */
 	@Override
@@ -89,7 +89,7 @@ public class GPSLocation extends AbstractLocation
 	}
 
 	/**
-	 *
+	 * @collaboration location, Photo
 	 * @methodtype conversion method
 	 */
 	@Override

@@ -43,7 +43,7 @@ public class WaterdropPhoto extends Photo
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, PhotoManager
 	 * @methodtype initialization method
 	 */
 	@Override
@@ -61,7 +61,7 @@ public class WaterdropPhoto extends Photo
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, PhotoManager
 	 * @methodtype command method
 	 */
 	@Override
@@ -75,7 +75,7 @@ public class WaterdropPhoto extends Photo
 	}
 
 	/**
-	 *
+	 * @collaboration WaterdropPhoto/Waterdrop, Waterdrop
 	 * @methodtype get method
 	 */
 	public Waterdrop getWaterdrop()
@@ -84,7 +84,7 @@ public class WaterdropPhoto extends Photo
 	}
 
 	/**
-	 *
+	 * @collaboration WaterdropPhoto/Waterdrop, Waterdrop
 	 * @methodtype set method
 	 */
 	public void setWaterdrop(Waterdrop waterdrop)

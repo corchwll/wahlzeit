@@ -33,6 +33,7 @@ public class WaterdropManager extends ObjectManager
 	{}
 
 	/**
+	 * @collaboration manager, Waterdrop
 	 * @methodtype factory
 	 */
 	public Waterdrop createWaterdrop(String techniqueAsString, String formAsString, String influenceAsString)
@@ -50,6 +51,7 @@ public class WaterdropManager extends ObjectManager
 	}
 
 	/**
+	 * @collaboration manager, Waterdrop
 	 * @methodtype factory
 	 */
 	public Waterdrop createWaterdrop(String techniqueAsString, String formAsString, String influenceAsString, String
@@ -72,7 +74,7 @@ public class WaterdropManager extends ObjectManager
 	}
 
 	/**
-	 *
+	 * @collaboration serializer, Waterdrop
 	 * @methodtype command method
 	 */
 	public void saveWaterdrop(ResultSet rset, Waterdrop waterdrop) throws SQLException
@@ -87,6 +89,9 @@ public class WaterdropManager extends ObjectManager
 		assert !rset.isClosed();
 	}
 
+	/**
+	 * @collaboration serializer, Waterdrop
+	 */
 	@Override
 	protected Persistent createObject(ResultSet rset) throws SQLException
 	{

@@ -23,6 +23,9 @@ public enum WaterdropFormEnum
 	private boolean crown;
 	private boolean fontain;
 
+	/**
+	 * @methodtype constructor
+	 */
 	WaterdropFormEnum(boolean doublePillar, boolean bubble, boolean highPillar, boolean crown, boolean fontain)
 	{
 		this.doublePillar = doublePillar;
@@ -32,31 +35,49 @@ public enum WaterdropFormEnum
 		this.fontain = fontain;
 	}
 
+	/**
+	 * @methodtype boolean query method
+	 */
 	public boolean isDoublePillar()
 	{
 		return doublePillar;
 	}
 
+	/**
+	 * @methodtype boolean query method
+	 */
 	public boolean isBubble()
 	{
 		return bubble;
 	}
 
+	/**
+	 * @methodtype boolean query method
+	 */
 	public boolean isHighPillar()
 	{
 		return highPillar;
 	}
 
+	/**
+	 * @methodtype boolean query method
+	 */
 	public boolean isCrown()
 	{
 		return crown;
 	}
 
+	/**
+	 * @methodtype boolean query method
+	 */
 	public boolean isFontain()
 	{
 		return fontain;
 	}
 
+	/**
+	 * @methodtype conversion method
+	 */
 	public String asString()
 	{
 		String form = "";

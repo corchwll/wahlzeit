@@ -20,6 +20,7 @@ public class WaterdropPhotoFactory extends PhotoFactory
 	}
 
 	/**
+	 * @collaboration factory, WaterdropPhoto
 	 * @methodtype factory
 	 */
 	@Override
@@ -29,6 +30,7 @@ public class WaterdropPhotoFactory extends PhotoFactory
 	}
 
 	/**
+	 * @collaboration factory, WaterdropPhoto
 	 * @methodtype factory
 	 */
 	@Override
@@ -38,6 +40,7 @@ public class WaterdropPhotoFactory extends PhotoFactory
 	}
 
 	/**
+	 * @collaboration factory, WaterdropPhoto
 	 * @methodtype factory
 	 */
 	@Override

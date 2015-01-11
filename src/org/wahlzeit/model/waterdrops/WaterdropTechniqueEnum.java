@@ -23,6 +23,9 @@ public enum WaterdropTechniqueEnum
 	private boolean smoke;
 	private boolean soapFilm;
 
+	/**
+	 * @methodtype constructor
+	 */
 	WaterdropTechniqueEnum(boolean solidSurface, Liquid liquid, boolean smoke, boolean soapFilm)
 	{
 		this.solidSurface = solidSurface;
@@ -31,26 +34,41 @@ public enum WaterdropTechniqueEnum
 		this.soapFilm = soapFilm;
 	}
 
+	/**
+	 * @methodtype boolean query method
+	 */
 	public boolean isSolidSurface()
 	{
 		return solidSurface;
 	}
 
+	/**
+	 * @methodtype get method
+	 */
 	public Liquid getLiquid()
 	{
 		return liquid;
 	}
 
+	/**
+	 * @methodtype boolean query method
+	 */
 	public boolean isSmoke()
 	{
 		return smoke;
 	}
 
+	/**
+	 * @methodtype boolean query method
+	 */
 	public boolean isSoapFilm()
 	{
 		return soapFilm;
 	}
 
+	/**
+	 * @methodtype conversion method
+	 */
 	public String asString()
 	{
 		String technique = "";
