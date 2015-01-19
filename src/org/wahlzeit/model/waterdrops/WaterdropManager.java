@@ -38,7 +38,13 @@ public class WaterdropManager extends ObjectManager
 	 */
 	public Waterdrop createWaterdrop(String techniqueAsString, String formAsString, String influenceAsString)
 	{
-		assert techniqueAsString != null && formAsString != null && influenceAsString != null;
+		try
+		{
+			assert techniqueAsString != null && formAsString != null && influenceAsString != null;
+		} catch(Exception e)
+		{
+			throw new RuntimeException("The parameters have to be not null!");
+		}
 
 		Waterdrop waterdrop = new Waterdrop();
 
@@ -46,7 +52,13 @@ public class WaterdropManager extends ObjectManager
 		waterdrop.setForm(WaterdropFormEnum.valueOf(formAsString));
 		waterdrop.setInfluence(Influence.valueOf(influenceAsString));
 
-		assert waterdrop.getTechnique() != null && waterdrop.getForm() != null && waterdrop.influence != null;
+		try
+		{
+			assert waterdrop.getTechnique() != null && waterdrop.getForm() != null && waterdrop.influence != null;
+		} catch(Exception e)
+		{
+			throw new RuntimeException("Something went wrong with waterdrop initialization.");
+		}
 		return waterdrop;
 	}
 
@@ -57,8 +69,14 @@ public class WaterdropManager extends ObjectManager
 	public Waterdrop createWaterdrop(String techniqueAsString, String formAsString, String influenceAsString, String
 			typeName, double size, String tool)
 	{
-		assert techniqueAsString != null && formAsString != null && influenceAsString != null && typeName != null &&
-				size > 0.0 && tool != null;
+		try
+		{
+			assert techniqueAsString != null && formAsString != null && influenceAsString != null && typeName != null &&
+					size > 0.0 && tool != null;
+		} catch(Exception e)
+		{
+			throw new RuntimeException("The parameters have to be not null!");
+		}
 
 		WaterdropType type = new WaterdropType(typeName, size, tool);
 		Waterdrop waterdrop = new Waterdrop();
@@ -68,8 +86,14 @@ public class WaterdropManager extends ObjectManager
 		waterdrop.setInfluence(Influence.valueOf(influenceAsString));
 		waterdrop.setType(type);
 
-		assert waterdrop.getTechnique() != null && waterdrop.getForm() != null && waterdrop.influence != null &&
-				waterdrop.getType() != null;
+		try
+		{
+			assert waterdrop.getTechnique() != null && waterdrop.getForm() != null && waterdrop.influence != null &&
+					waterdrop.getType() != null;
+		} catch(Exception e)
+		{
+			throw new RuntimeException("Something went wrong with waterdrop initialization");
+		}
 		return waterdrop;
 	}
 
@@ -79,14 +103,26 @@ public class WaterdropManager extends ObjectManager
 	 */
 	public void saveWaterdrop(ResultSet rset, Waterdrop waterdrop) throws SQLException
 	{
-		assert !rset.isClosed() && waterdrop != null;
+		try
+		{
+			assert !rset.isClosed() && waterdrop != null;
+		} catch(Exception e)
+		{
+			throw new RuntimeException("ResultSet has to be open! Waterdrop should not be null!");
+		}
 		rset.updateString(WaterdropPhoto.TECHNIQUE, waterdrop.getTechnique().name());
 		rset.updateString(WaterdropPhoto.FORM, waterdrop.getForm().name());
 		rset.updateString(WaterdropPhoto.INFLUENCE, waterdrop.getInfluence().name());
 		rset.updateString(WaterdropType.NAME, waterdrop.getType().getName());
 		rset.updateDouble(WaterdropType.SIZE, waterdrop.getType().getWaterdropSize());
 		rset.updateString(WaterdropType.TOOL, waterdrop.getType().getTool());
-		assert !rset.isClosed();
+		try
+		{
+			assert !rset.isClosed();
+		} catch(Exception e)
+		{
+			throw new RuntimeException("ResultSet has to be open!");
+		}
 	}
 
 	/**

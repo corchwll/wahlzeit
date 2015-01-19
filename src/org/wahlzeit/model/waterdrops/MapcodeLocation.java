@@ -46,7 +46,7 @@ public class MapcodeLocation extends AbstractLocation
 			result = new double[]{p.getLonDeg(), p.getLatDeg()};
 		} catch(UnknownMapcodeException e)
 		{
-			e.printStackTrace();
+			throw new RuntimeException("Mapcode could not be decoded");
 		}
 
 		return result;

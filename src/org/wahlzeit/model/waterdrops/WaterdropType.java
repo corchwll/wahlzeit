@@ -57,8 +57,14 @@ public class WaterdropType
 	 */
 	public void setWaterdropSize(double waterdropSize)
 	{
-		assert waterdropSize > 0.0;
-		this.waterdropSize = waterdropSize;
+		try
+		{
+			assert waterdropSize > 0.0;
+			this.waterdropSize = waterdropSize;
+		} catch(Exception e)
+		{
+			throw new RuntimeException("Waterdrop size has to be positive");
+		}
 	}
 
 	/**

@@ -49,7 +49,13 @@ public class WaterdropPhoto extends Photo
 	@Override
 	public void readFrom(ResultSet rset) throws SQLException
 	{
-		assert !rset.isClosed();
+		try
+		{
+			assert !rset.isClosed();
+		} catch(Exception e)
+		{
+			throw new RuntimeException("ResultSet has to be open!");
+		}
 		super.readFrom(rset);
 
 		String technique = rset.getString(TECHNIQUE);
@@ -57,7 +63,13 @@ public class WaterdropPhoto extends Photo
 		String influence = rset.getString(INFLUENCE);
 		this.waterdrop = WaterdropManager.getInstance().createWaterdrop(technique, form, influence);
 
-		assert waterdrop.getTechnique() != null && waterdrop.getForm() != null && waterdrop.getInfluence() != null;
+		try
+		{
+			assert waterdrop.getTechnique() != null && waterdrop.getForm() != null && waterdrop.getInfluence() != null;
+		} catch(Exception e)
+		{
+			throw new RuntimeException("Something went wrong with initialization.");
+		}
 	}
 
 	/**
@@ -67,11 +79,23 @@ public class WaterdropPhoto extends Photo
 	@Override
 	public void writeOn(ResultSet rset) throws SQLException
 	{
-		assert !rset.isClosed();
+		try
+		{
+			assert !rset.isClosed();
+		} catch(Exception e)
+		{
+			throw new RuntimeException("ResultSet has to be open!");
+		}
 		super.writeOn(rset);
 
 		WaterdropManager.getInstance().saveWaterdrop(rset, this.waterdrop);
-		assert !rset.isClosed();
+		try
+		{
+			assert !rset.isClosed();
+		} catch(Exception e)
+		{
+			throw new RuntimeException("ResultSet has to be open!");
+		}
 	}
 
 	/**
@@ -89,7 +113,13 @@ public class WaterdropPhoto extends Photo
 	 */
 	public void setWaterdrop(Waterdrop waterdrop)
 	{
-		assert waterdrop != null;
+		try
+		{
+			assert waterdrop != null;
+		} catch(Exception e)
+		{
+			throw new RuntimeException("Waterdrop should not be null");
+		}
 		this.waterdrop = waterdrop;
 		incWriteCount();
 	}

@@ -74,7 +74,7 @@ public class GPSLocation extends AbstractLocation
 			point = new double[]{p.getLatDeg(), p.getLonDeg()};
 		} catch(UnknownMapcodeException e)
 		{
-			e.printStackTrace();
+			throw new RuntimeException("Mapcode could not be decoded");
 		}
 	}
 
