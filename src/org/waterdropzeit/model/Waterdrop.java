@@ -1,4 +1,4 @@
-package org.wahlzeit.model.waterdrops;
+package org.waterdropzeit.model;
 
 import org.wahlzeit.services.DataObject;
 

@@ -1,9 +1,11 @@
-package org.wahlzeit.handlers;
+package org.waterdropzeit.handlers;
 
+import org.wahlzeit.handlers.PartUtil;
+import org.wahlzeit.handlers.ShowPhotoPageHandler;
 import org.wahlzeit.model.Photo;
 import org.wahlzeit.model.UserSession;
-import org.wahlzeit.model.waterdrops.WaterdropPhoto;
-import org.wahlzeit.model.waterdrops.WaterdropType;
+import org.waterdropzeit.model.WaterdropPhoto;
+import org.waterdropzeit.model.WaterdropType;
 import org.wahlzeit.webparts.WebPart;
 
 /**

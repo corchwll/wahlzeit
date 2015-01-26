@@ -1,10 +1,14 @@
-package org.wahlzeit.handlers;
+package org.waterdropzeit.handlers;
 
+import org.wahlzeit.handlers.PartUtil;
+import org.wahlzeit.handlers.UploadPhotoFormHandler;
 import org.wahlzeit.model.*;
-import org.wahlzeit.model.waterdrops.*;
 import org.wahlzeit.services.SysConfig;
 import org.wahlzeit.services.SysLog;
 import org.wahlzeit.utils.StringUtil;
+import org.waterdropzeit.model.*;
+import org.waterdropzeit.model.location.GPSLocation;
+import org.waterdropzeit.model.location.Location;
 
 import java.io.File;
 import java.util.Map;

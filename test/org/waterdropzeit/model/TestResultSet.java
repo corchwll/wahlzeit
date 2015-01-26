@@ -1,4 +1,4 @@
-package org.wahlzeit.model.waterdrops;
+package org.waterdropzeit.model;
 
 import java.io.InputStream;
 import java.io.Reader;

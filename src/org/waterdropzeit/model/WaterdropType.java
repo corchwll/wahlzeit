@@ -1,4 +1,4 @@
-package org.wahlzeit.model.waterdrops;
+package org.waterdropzeit.model;
 
 /**
  * Created by fertigt on 15/12/14.

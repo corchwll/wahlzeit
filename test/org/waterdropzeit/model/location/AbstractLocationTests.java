@@ -1,10 +1,10 @@
-package org.wahlzeit.model.waterdrops;
+package org.waterdropzeit.model.location;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wahlzeit.model.waterdrops.GPSLocation;
-import org.wahlzeit.model.waterdrops.Location;
-import org.wahlzeit.model.waterdrops.MapcodeLocation;
+import org.waterdropzeit.model.location.GPSLocation;
+import org.waterdropzeit.model.location.Location;
+import org.waterdropzeit.model.location.MapcodeLocation;
 
 import static org.junit.Assert.assertTrue;
 

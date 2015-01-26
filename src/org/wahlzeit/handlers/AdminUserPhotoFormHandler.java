@@ -21,8 +21,8 @@
 package org.wahlzeit.handlers;
 
 import org.wahlzeit.model.*;
-import org.wahlzeit.model.waterdrops.GPSLocation;
-import org.wahlzeit.model.waterdrops.Location;
+import org.waterdropzeit.model.location.GPSLocation;
+import org.waterdropzeit.model.location.Location;
 import org.wahlzeit.webparts.WebPart;
 
 import java.util.Map;

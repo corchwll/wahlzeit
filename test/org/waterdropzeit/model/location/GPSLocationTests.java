@@ -1,4 +1,4 @@
-package org.wahlzeit.model.waterdrops;
+package org.waterdropzeit.model.location;
 
 import org.junit.Before;
 import org.junit.Test;

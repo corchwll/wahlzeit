@@ -1,4 +1,4 @@
-package org.wahlzeit.model.waterdrops;
+package org.waterdropzeit.model;
 
 import org.wahlzeit.model.Photo;
 import org.wahlzeit.model.PhotoId;

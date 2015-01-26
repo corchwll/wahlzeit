@@ -21,7 +21,7 @@
 package org.wahlzeit.main;
 
 import org.wahlzeit.model.*;
-import org.wahlzeit.model.waterdrops.WaterdropPhotoFactory;
+import org.waterdropzeit.model.WaterdropPhotoFactory;
 import org.wahlzeit.services.*;
 import org.wahlzeit.servlets.AbstractServlet;
 

@@ -1,4 +1,4 @@
-package org.wahlzeit.model.waterdrops;
+package org.waterdropzeit.model;
 
 import org.junit.Test;
 
@@ -81,6 +81,7 @@ public class WaterdropManagerTests
 			exceptionThrown = true;
 		}
 
-		assertTrue(exceptionThrown == false && rsetValues.equals(rset.rsetValues));
+		assertTrue("exceptionThrown = " + exceptionThrown, exceptionThrown == false && rsetValues.equals(rset
+				.rsetValues));
 	}
 }

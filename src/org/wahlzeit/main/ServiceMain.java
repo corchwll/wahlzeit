@@ -30,6 +30,8 @@ import org.wahlzeit.services.ConfigDir;
 import org.wahlzeit.services.Language;
 import org.wahlzeit.services.SysConfig;
 import org.wahlzeit.webparts.WebPartTemplateService;
+import org.waterdropzeit.handlers.ShowWaterdropPhotoPageHandler;
+import org.waterdropzeit.handlers.UploadWaterdropPhotoFormHandler;
 
 /**
  * A Main class that runs a Wahlzeit web server.

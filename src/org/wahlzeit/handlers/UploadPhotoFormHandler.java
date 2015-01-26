@@ -21,11 +21,12 @@
 package org.wahlzeit.handlers;
 
 import org.wahlzeit.model.*;
-import org.wahlzeit.model.waterdrops.*;
 import org.wahlzeit.services.SysConfig;
 import org.wahlzeit.services.SysLog;
 import org.wahlzeit.utils.StringUtil;
 import org.wahlzeit.webparts.WebPart;
+import org.waterdropzeit.model.location.GPSLocation;
+import org.waterdropzeit.model.location.Location;
 
 import java.io.*;
 import java.util.Map;
